@@ -1,0 +1,203 @@
+﻿/* GENERAL PAGE STYLING */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* MAIN TITLE */
+.main-title {
+    text-align: center;
+    padding: 30px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    margin-bottom: 50px;
+}
+
+/* COLLECTION / GALLERY TITLE */
+.gallery-title {
+    text-align: center;
+    margin: 24px 0 8px;
+    padding: 8px 16px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2d3d;
+}
+
+/* PAGE LINKS CONTAINER */
+.page-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+    /* INDIVIDUAL LINK CARDS */
+    .page-links a {
+        background: #ffffff;
+        width: 220px;
+        padding: 25px 15px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        /* HOVER EFFECT ON CARDS */
+        .page-links a:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+
+        /* ICON OR IMAGE PLACEHOLDER */
+        .page-links a .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #667eea;
+            transition: color 0.3s ease;
+        }
+
+        .page-links a:hover .icon {
+            color: #fff;
+        }
+
+/* GALLERY STYLING */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* PHOTO CARD STYLING */
+.photo-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    /* let pointer indicate interactivity */
+    cursor: default;
+}
+
+/* hover lift + stronger shadow */
+.photo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    cursor: pointer;
+}
+
+/* Image: consistent height + subtle scale on card hover */
+.photo-card img {
+    width: 100%;
+    height: 220px; /* consistent visual height for every image */
+    object-fit: cover; /* crop without stretching */
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+/* scale image slightly when the card is hovered */
+.photo-card:hover img {
+    transform: scale(1.03);
+}
+
+.photo-card h4,
+.photo-title {
+    margin: 12px;
+    font-size: 16px;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* number-only title: centered and bold */s
+.photo-number {
+    margin: 12px;
+    font-size: 16px;
+    color: #222;
+    text-align: center;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.photo-card p {
+    margin: 0 12px 12px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .page-links a {
+        width: 180px;
+        font-size: 18px;
+        padding: 20px 10px;
+    }
+
+    .main-title {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .photo-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-links {
+        gap: 15px;
+    }
+
+        .page-links a {
+            width: 140px;
+            font-size: 16px;
+            padding: 15px 10px;
+        }
+
+    .gallery {
+        padding: 10px;
+    }
+
+    .photo-card img {
+        height: 150px;
+    }
+
+    .photo-card h4,
+    .photo-title {
+        font-size: 14px;
+    }
+
+    .photo-card p {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<PhotoAlbum_FamilyName.Models.Photo>
+
+@{
+    ViewData["Title"] = "Cities Collection";
+}
+
+<h1 class="gallery-title">Cities Collection</h1>
+
+<div class="gallery">
+    @foreach (var photo in Model)
+    {
+        var m = System.Text.RegularExpressions.Regex.Match(photo.Title ?? "", @"\d+");
+        var number = m.Success ? m.Value : photo.Title;
+
+        <div class="photo-card">
+            <img src="@photo.ImagePath" alt="@photo.Title" />
+            <h4 class="photo-number">@number</h4>
+        </div>
+    }
+</div>

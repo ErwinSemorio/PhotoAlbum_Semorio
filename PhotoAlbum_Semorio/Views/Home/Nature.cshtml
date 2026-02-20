@@ -1,0 +1,28 @@
+@model IEnumerable<PhotoAlbum_FamilyName.Models.Photo>
+
+@{
+    ViewData["Title"] = "Nature Collection";
+}
+
+<h1 class="gallery-title">Nature Collection</h1>
+
+<!-- Debug / diagnostic info -->
+@if (ViewBag.FilesFound != null)
+{
+    <div style="margin:10px 20px; color:#444;">
+        Showing <strong>@ViewBag.PhotosReturned</strong> photos (server found <strong>@ViewBag.FilesFound</strong> files in the folder).
+    </div>
+}
+
+<div class="gallery">
+    @foreach (var photo in Model)
+    {
+        var m = System.Text.RegularExpressions.Regex.Match(photo.Title ?? "", @"\d+");
+        var number = m.Success ? m.Value : photo.Title;
+
+        <div class="photo-card">
+            <img src="@photo.ImagePath" alt="@photo.Title" />
+            <h4 class="photo-number">@number</h4>
+        </div>
+    }
+</div>
