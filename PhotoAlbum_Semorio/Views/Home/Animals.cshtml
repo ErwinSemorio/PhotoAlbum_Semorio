@@ -13,7 +13,9 @@
         var number = m.Success ? m.Value : photo.Title;
 
         <div class="photo-card">
-            <img src="@photo.ImagePath" alt="@photo.Title" />
+            <a href="@photo.ImagePath" class="photo-link" data-caption="@number">
+                <img src="@photo.ImagePath" alt="@photo.Title" />
+            </a>
             <h4 class="photo-number">@number</h4>
         </div>
     }
